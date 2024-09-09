@@ -1,0 +1,68 @@
+<div class="containerL">
+    <div class="top">
+        <i class="fa-solid fa-arrow-right icon" onclick="toggleM()"></i>
+        <div class="logo1">Len-Den</div>
+        <nav>
+            <i class="fa-solid fa-earth-europe"></i>
+            <button onclick="fetchItems()">All items</button>
+        </nav>
+        <nav>
+            <i class="fa-solid fa-map-location-dot"></i>
+            <button onclick="fetchItems('property')">properties</button>
+        </nav>
+
+        <nav>
+            <i class="fa-solid fa-laptop-medical"></i>
+            <button onclick="fetchItems('electronics')">Electronic</button>
+        </nav>
+
+        <nav>    
+            <i class="fa-solid fa-tractor"></i>
+            <button onclick="fetchItems('vehicles')">Vahical</button>
+        </nav>
+
+        <nav>
+            <i class="fa-solid fa-dog"></i>
+            <button onclick="fetchItems('animals')">Animals</button>
+        </nav>
+        <nav>
+            <i class="fa-solid fa-couch"></i>
+            <button onclick="fetchItems('furnitur')">Furniture</button>
+        </nav>
+        <nav>
+            <i class="fa-brands fa-artstation"></i>
+            <button onclick="fetchItems('collectibles')">Collectibles & Art</button>
+        </nav>
+        <nav>
+            <i class="fa-solid fa-bag-shopping"></i>
+            <button onclick="fetchItems('other')">Other</button>
+        </nav>
+    </div>
+
+    <div class="down">
+        <nav>
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <a href="/logout">Logout</a>
+        </nav>
+
+        <nav>
+            <i class="fa-regular fa-user"></i>
+            <a href="/user/profile" id="name"><%= userName %></a>
+        </nav>
+    </div>
+</div>
+
+<script>
+    let containerL = document.querySelector('.containerL');
+    let icon = document.querySelector('.icon')
+
+    function toggleM(){
+        containerL.classList.toggle('show')
+
+        if(containerL.classList.contains('show')){
+            icon.className = 'fa-solid fa-arrow-left icon'
+        }else{
+            icon.className = 'fa-solid fa-arrow-right icon'
+        }
+    }
+</script>

@@ -1,0 +1,960 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family:"Poppins", sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: #7782ca4c;
+}
+
+.item{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: repeat(auto-fill,250px);
+    gap: 10px;
+    outline: none;
+    border-radius: 8px;
+    background-color: #cb05ad2a;
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.293); */
+    /* box-shadow: 0px 0px 5px #000000da, inset 0 0 3px rgb(0, 0, 0); */
+    box-shadow: inset 1px -3px 6px #2525253b;
+    text-align: center;
+    margin: 15px 60px;
+}
+
+#item-container h2{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 4cap;
+    font-family: 'Poppins', sans-serif;
+}
+
+.left{
+    grid-area: 1/1/2/3;
+    /* border-right: 1px solid gray; */
+    place-self: center;  
+}
+
+.right{
+    grid-area: 1/3/2/7;
+    border-left: 1px dotted gray;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* styleing of the indexjs */
+
+.item .left img{
+    max-width: 220px;
+    max-height: 220px;
+    display: block;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.item .right #heading{
+    padding: 10px 0;
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 2.6cap;
+}
+
+.item .right #aboutItem{
+    opacity: 70%;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: clip;
+
+}
+
+svg{
+    height: 20px;
+    width: 20px;
+}
+
+.item .right .item-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 35px;
+    font-family: "Chakra Petch", sans-serif;
+    font-size:18px;
+}
+
+.item .right .item-bottom button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 18px;
+    
+}
+
+.item .right .item-bottom #price{
+    color: #017215;
+}
+
+/* bookmark heading */
+#bookmark-heading{
+    display: flex;
+    align-self: center;
+    position: relative;
+    text-align: center;
+    margin-top: 20px;
+    font-family: "Chakra Petch", sans-serif;
+}
+
+#bookmark-heading::before{
+    position: absolute;
+    content: '';
+    bottom: -4px;
+    width: 85%;
+    border-bottom: 3px dotted rgb(0, 0, 0);
+
+}
+
+#bookmark-container h3{
+    text-align: center;
+    margin-top: 50px;
+    font-family:"Chakra Petch", sans-serif;
+    font-size: 4cap;
+}
+
+/* For a top nav bar */
+
+.container{   
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    background-color: beige;
+    padding: 5px 25px;
+    align-items: end;
+    z-index: 1;
+    position: sticky;
+    top: 0; /* Sticks the navbar to the top of the viewport */
+    width: 100%; /* Ensures the navbar spans the full width */
+    box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.315);   
+}
+
+.logo{
+    font-size: 24px;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.logo1{
+    font-size: 24px;
+    font-weight: 700;
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+    /* margin-top: 6px; */
+    /* margin-left: -8px; */
+}
+
+.heading-top a{
+    font-family: "Chakra Petch", sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    color: inherit;
+    padding: 0px 20px;
+    font-size: 20px;
+    letter-spacing: 0.15cap;
+}
+
+.heading-top a.active{
+    position: relative;
+    /* transform: translateY(-20%); */
+    /* background-color: #8080803c; */
+}
+
+.heading-top a.active::before{
+    position: absolute;
+    content: '';
+    width: 50%;
+    bottom: 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.76);
+
+}
+
+/* for left navbar */
+
+.containerL{
+    font-family: "Poppins",sans-serif;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    width: 150px;
+    left: -150px;
+    background-color: rgba(255, 255, 255, 0.627);
+    justify-content: space-between;
+    padding: 10px 5px;
+    transition: left 0.8s ease-in-out;
+    z-index: 10;
+    box-shadow: inset -5px 0 4px rgba(0, 0, 0, 0.238);
+}
+.containerL.show{
+    left:0;
+}
+
+
+.fa-arrow-right,.fa-arrow-left{
+    
+    position: absolute;
+    top: 45%;
+    left: 100%;
+    /* transform: translate(-50%, -50%); */
+    font-size: 20px;
+    height: 35px;
+    width: 35px;
+    
+    /* background-color: aqua; */
+    
+}
+
+
+
+.top nav{
+    display: flex;
+    margin-top: 5px;
+    padding: 8px 5px;
+    align-items: center;
+    font-size: 20px;
+}
+.top nav:hover{
+    background-color: rgba(128, 128, 128, 0.145);
+    border-radius: 4px;
+}
+
+.top nav button{
+    font-family: "Chakra Petch", sans-serif;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: inherit;
+    font-size: 18px;
+    padding: 0px 8px;
+}
+
+.down {
+    margin-bottom: 25px;
+    z-index: 0;
+}
+
+.down nav{
+    display: flex;
+    margin: 5px 5px;
+    padding: 10px 5px;
+    /* background-color: blanchedalmond; */
+    align-items: center;
+    font-size: 20px;
+}
+
+.down nav a,span{
+    font-family: "Chakra Petch", sans-serif;
+    text-decoration: none;
+    color: inherit;
+    padding: 0px 10px;
+    overflow-x:hidden ;
+}
+
+/* style of a postads icon */
+
+.fa-plus{
+    text-decoration: none;
+    color: inherit;
+    font-size: 24px;
+    position: fixed;
+    bottom: 35px;
+    right: 45px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: aqua;
+    box-shadow: inset 0 -2px 5px rgba(14, 14, 14, 0.458);
+}
+
+
+/* Postad styling */
+
+.item-page{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #f1d5ee;
+    min-height: 100vh;
+}
+.item-container {
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.item-heading {
+    position: relative;
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px 45px;
+}
+
+.item-heading hr {
+    position: absolute;
+    width: 50%;
+    height: 2px;   
+}
+
+.item-form {
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 45px;
+    margin-top: 25px;
+    background-color: #cb05052a;
+    padding: 35px 25px;
+    max-width: 720px;
+    height: 500px;
+    justify-content: space-evenly;
+    box-shadow: inset 0px -2px 7px rgba(0, 0, 0, 0.241);
+}
+
+.item-form div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0px 5px;
+}
+
+.item-form div input,
+.item-form select,
+.item-form textarea {
+    height: 35px;
+    padding: 0px 20px;
+    border-radius: 4px;
+    width: 100%;
+    margin: 12px 25px; 
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    border: 0;
+    font-weight: 600;
+}
+
+.item-form textarea {
+    padding-top: 7px;
+    height: 100px;
+}
+
+.item-form #item-submit {
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    width: 35%;
+    border-radius: 2px;
+    margin-top: 5px;
+    background-color: rgba(52, 77, 204, 0.573);
+    /* outline: none; */
+    border: none;
+    font-size: 20px;
+    box-shadow: inset 0 -2px 3px #04040471, inset -1px 0 5px rgba(230, 219, 219, 0.166);
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+}
+
+.file-input-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* width: 100%; */
+    /* margin: 12px 25px; */
+}
+
+.file-input-container input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 35px;
+    cursor: pointer;
+}
+
+.file-input-container label {
+    display: block;
+    background-color: #8b8b8bc3;
+    /* color: white; */
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.file-input-container #file-name {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #070707;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* .item-page-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+} */
+
+@media (max-width:1300px){
+    .item-page-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 3;
+    }
+
+    .item-page-logo img{
+        height: 80%;
+        width: 80%;
+        transform:translateY(-50px) ;
+        
+    }   
+}
+
+@media (max-width:1044px){
+    .item-page-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 3;
+    }
+
+    .item-page-logo img{
+        height: 50%;
+        width: 60%;
+        transform:translateY(-50px) ;
+        
+    }  
+}
+
+@media (max-width:720px){
+    .item-page-logo {
+        display: none;
+    }
+}
+
+@media (max-width:720px){
+    .item-form {
+        margin: 25px 10px;
+        padding: 5px 0px;
+        min-height: 600px;
+    }
+
+
+    .item-form div input,
+    .item-form select,
+    .item-form textarea {
+    /* height: 25px; */
+    padding: 0px 25px;
+    border-radius: 4px;
+    width: 100%;
+    /* margin:5px;  */
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    border: 0;
+    font-weight: 600;
+    }
+
+    .item-form div{
+        display: flex;
+        flex-direction: column;
+        padding: 0px 20px;
+    }
+
+    .item-form textarea {
+        padding-top: 7px;
+        height: 100px;
+    }
+}
+
+
+/* Register form  styling  */
+
+
+#register-title{
+    position: relative;
+    text-align: center;
+    margin-top: 20px;
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 4cap;
+    letter-spacing: 0.05cap;
+}
+
+#register-title::before{
+    position: absolute;
+    content: '';
+    border-bottom:2px dotted black;
+    bottom: -4px;
+    width: 85%;
+}
+
+.register-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.register-right img{
+    width: 340px;
+    height: auto;
+}
+
+.register-wrapper{
+    display: flex;
+    height: 75vh;
+    width: 980px;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #cb05ad2a;
+    /* border: 2px solid red; */
+    margin: 25px 10px;
+    border-radius: 8px;
+}
+
+#register-form .register-input{
+    position: relative;
+    margin-bottom: 12px;
+}
+
+#register-form .register-input input{
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.515);
+    background-color: rgba(255, 255, 255, 0.471);
+    height: 40px;  
+    width: 520px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.242);
+    padding-left: 15px;
+    font-size: 16px;
+    font-family: "Chakra Petch", sans-serif;
+    font-weight: 500;
+    letter-spacing:0.15cap;
+}
+
+#register-form .register-input svg{
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    display: block;
+    color: aqua;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    fill: gray;
+}
+
+#register-form #register-submit{
+    height: 35px;
+    width: 200px;
+    background-color: #34cf77;
+    border: 1px solid #00000033;
+    border-radius: 2px;
+    box-shadow: inset 0 -2px 3px rgba(0, 0, 0, 0.384);
+    font-size: 18px;
+    font-family: "Chakra Petch", sans-serif;
+    letter-spacing: 0.15cap;
+    font-weight: 700;
+    transition: background-color 0.5s ease-out;
+    transition: color 0.5s ease-out;
+}
+
+#register-form #register-submit:hover{
+    background-color: rgba(223, 154, 211, 0.744);
+    color: #0800ff;
+}
+
+.register-extra{
+    margin-top: 20px;
+    font-size: 18px;
+    font-family: "Chakra Petch", sans-serif;
+    font-style:normal;
+    font-weight: 700;
+    letter-spacing: 0.2cap;
+}
+
+.register-right{
+    transform: translateY(-10%);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Hide the spinner in Firefox */
+input[type="number"] {
+    -moz-appearance: textfield; 
+    appearance: textfield;
+}
+
+
+/* Login form styleing */
+
+
+
+.login-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+}
+
+#login-title{
+    position: relative;
+    margin-top: 20px;
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 4cap;
+}
+
+#login-title::before{
+    position: absolute;
+    content: '';
+    border-bottom: 3px dotted black;
+    width: 85%;
+    bottom: -5px;
+}
+
+.login-wrapper{
+    display: flex;
+    height: 70vh;
+    width: 800px;
+    justify-content: space-around;
+    border-radius: 8px;
+    margin-top: 45px;
+    background-color: #cb05ad2a;
+    padding: 100px 0;
+}
+
+.login-wrapper .login-left #login-form .login-input{
+    position: relative;
+}
+
+.login-wrapper .login-left #login-form .login-input input{
+    margin: 15px 0;
+    height: 45px;
+    width: 400px;
+    padding: 0 25px;  
+    border: none;
+    border-bottom: 1px solid #0000009e;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.512);
+    font-size: 18px;
+    box-shadow:  inset 0 -2px 3px rgba(0, 0, 0, 0.389);
+    letter-spacing: 0.1cap;
+    font-weight: 600;
+    outline: none;
+    font-family: "Chakra Petch", sans-serif;
+}
+
+.login-wrapper #login-form .login-input svg{
+    position: absolute;
+    right: 10px;
+    height: 28px;
+    width: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    fill: rgb(69, 69, 69);
+}
+
+.login-wrapper #login-form #login-submit{
+    height: 35px;
+    width: 200px;
+    font-size: 18px;
+    margin-top: 15px;
+    letter-spacing: 0.15cap;
+    font-weight: 600;
+    font-variant: small-caps;
+    background-color: aquamarine;
+    border: none;
+    border-radius: 4px;
+    box-shadow: inset 0 -2px 3px rgba(66, 65, 65, 0.71);
+    font-family: "Chakra Petch", sans-serif;
+}
+
+.login-wrapper .login-extra{
+    margin-top: 35px;
+    font-size: 18px;
+    letter-spacing: 0.15cqmax;
+    font-family: "Chakra Petch", sans-serif;
+    font-weight: 600;
+}
+
+
+.login-wrapper .login-right img{
+    width: 280px;
+    height: auto;
+    transform: translateY(-10%);
+}
+
+
+/* Verify OTP styling */
+
+
+.otp-container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    text-align: center;
+}
+
+.otp-container h1{
+    position: relative;
+    margin-top: 25px;
+    font-variant: small-caps;
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 3.5cap;
+}
+
+.otp-container h1::before{
+    position: absolute;
+    content: '';
+    width: 85%;
+    bottom: -2px;
+    border-bottom: 2px dotted black;
+}
+
+.otp-container .otp-box{
+    background-color: #cb05ad2a;
+    /* border: 2px solid red; */
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    margin-top: 25px;    
+    padding: 25px 5px;
+}
+
+.otp-container .otp-box p{
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 18px;
+    opacity: 85%;
+}
+
+.otp-container .otp-box span{
+    display: flex;
+    justify-content: left;
+    padding-left: 25px;
+    font-size: 18px;
+    margin-top: 30px;
+    opacity: 50%;
+    font-family: "Chakra Petch", sans-serif;
+}
+
+.otp-container .otp-box span a{
+    padding: 0 20px;
+}
+
+.otp-container .otp-box .otp-inputs{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
+.otp-inputs .otp-input{
+    height: 35px;
+    width: 35px;
+    border-radius: 4px;
+    border: 2px solid rgba(0, 0, 0, 0.419);
+    text-align: center;
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.405);
+    box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.227);
+    font-family: "Chakra Petch", sans-serif;
+    font-weight: 600;
+}
+
+.otp-inputs .otp-input:focus{
+    border-color: rgba(0, 0, 255, 0.489);
+    outline: none;
+}
+
+#otp-submit{
+    height: 35px;
+    width: 250px;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    background-color: #23ed6d7d;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-variant: small-caps;
+    letter-spacing: 0.15cap;
+    box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.444);
+    font-family: "Chakra Petch", sans-serif;
+}
+
+
+/* Contact page sytling  */
+
+.contact-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+.contact-container h1{
+    font-family: "Chakra Petch", sans-serif;
+    margin-top: 20px;
+    font-size: 4cap;
+    position: relative;
+}
+.contact-container h1::before{
+    position: absolute;
+    content: '';
+    width: 65%;
+    bottom: -3px;
+    border-bottom: 3px dotted black;
+}
+
+.contact-box{
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 640px;
+    width: 100%;
+    height: auto;
+    margin-top: 25px;
+    padding: 25px 0;
+    background-color: #0d737a48;
+    border-radius: 8px;
+    box-shadow: inset 0 -3px 8px rgba(0, 0, 0, 0.43) ;
+}
+
+.contact-left form{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-left form input,.contact-left form textarea,.contact-left form button{
+    width: 340px;
+    padding-left:10px;
+    margin-bottom: 15px;
+    height: 35px;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.422);
+    box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.529);
+    font-size: 18px;
+    font-family: "Chakra Petch", sans-serif;
+}
+
+.contact-left form textarea{
+    height: 120px;
+    padding-top: 10px;
+}
+
+.contact-left form button{
+    margin-top: 10px;
+    width: 200px;
+    padding: 0;
+    background-color: rgba(124, 204, 123, 0.696);
+}
+
+.contact-left form button::after{
+    content: '⇒';
+    padding-left: 5px;
+    font-size: 18px;
+}
+
+.contact-right{
+    display: flex;
+    width:240px;
+    height: 240px;
+    transform: translateY(10%);
+}
+
+
+/* profile Page styling */
+
+
+.profile-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.profile-container h1{
+    font-family: "Chakra Petch", sans-serif;
+    margin: 20px 0;
+    font-variant: small-caps;
+    position: relative;
+    font-size: 4cap;
+}
+
+.profile-container h1::before{
+    position: absolute;
+    content: '';
+    width: 75%;
+    border-bottom: 3px dotted black;
+    bottom: -3px;
+}
+
+.profile-box{
+    display: flex;
+    flex-direction: column;
+    width: 540px;
+    border-radius: 8px;
+    background-color: #0303cc2a;
+    padding: 20px;
+    box-shadow: inset 0 -3px 6px #00000010;
+}
+
+.profile-box div{
+    margin-bottom: 15px;
+    padding: 5px 0;
+    display: flex;
+    font-size: 18px;
+}
+
+.profile-box div img{
+    display: flex;
+    align-self: center;
+    width: 260px;
+    height: 180px;
+    margin: 0 auto;
+}
+
+.profile-heading{
+    width: 100px;
+    font-weight: 500;
+}

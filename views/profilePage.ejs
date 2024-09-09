@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+    <div class="profile-container">
+        <h1>Your profile</h1>
+        <div class="profile-box">
+            <div>
+                <img src="/img/user-profile.png" alt="profile-photo">
+            </div>
+
+            <div class="profile-text">
+                <span class="profile-heading">Name </span>
+                <span id="profile-name" >:  <%= name %></span>
+            </div>
+            <div class="profile-text">
+                <span class="profile-heading">Email </span>
+                <span id="profile-email">: <%= email %></span>
+            </div>
+            <div class="profile-text">
+                <span class="profile-heading">Password </span>
+                <span id="profile-password">: <%= password %></span>
+            </div>
+            <div class="profile-text">
+                <span class="profile-heading">Phone Number </span>
+                <span id="profile-phone">: <%= phone %></span>
+            </div>
+            <div class="profile-text">
+                <span class="profile-heading">Address </span>
+                <span id="profile-address">: <%= address %> </span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

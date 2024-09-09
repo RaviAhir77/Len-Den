@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostAd</title>
+    <link rel="stylesheet" href="/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div class="item-page">
+
+    <div class="item-container">
+      <div class="item-heading">
+        <h1>Post Ads here</h1>
+        <hr>
+      </div>
+      <form action="/item/upload" method="post" enctype="multipart/form-data" class="item-form">
+        <div class="file-input-container">
+          <label for="photo">Choose a photo</label>
+          <input type="file" id="photo" name="photo" required>
+          <span id="file-name">No file chosen</span>
+        </div>
+        <div>
+          <input type="text" id="heading" name="heading" placeholder="Enter about product" required>
+        </div>
+  
+        <div>
+          <textarea name="aboutItem" id="about-item" placeholder="Enter about item" required></textarea>
+        </div>
+    
+        <div>
+          <input type="number" id="price" name="price" placeholder="Enter price" required>
+          <select name="catogory" id="catogory" required>
+            <option value="" disabled selected hidden>Select a Category</option>
+            <option value="property">Property</option>
+            <option value="electronics">Electronics</option>
+            <option value="vehicles">Vehicles</option>
+            <option value="animals">Animals</option>
+            <option value="furniture">Furniture</option>
+            <option value="collectibles">Collectibles & Art</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+    
+        <div>
+          <input type="text" id="city" name="city" placeholder="Enter your city" required>
+          <input type="text" id="address" name="address" placeholder="Enter your address" required>
+        </div>
+    
+        <button type="submit" id="item-submit">Post Ad</button>
+      </form>
+    </div> 
+
+    <div class="item-page-logo">
+      <img src="/img/item_form.jpg" alt="my img">
+    </div>
+  </div>
+  
+  
+  <script>
+    document.getElementById('photo').addEventListener('change', function() {
+    const fileName = this.files[0]?.name || "No file chosen";
+    document.getElementById('file-name').textContent = fileName;
+    });
+  </script>
+</body>
+</html>

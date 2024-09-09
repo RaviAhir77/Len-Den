@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification</title>
+    <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+    <div class="otp-container">
+        <h1>Verify Your Email</h1>
+        <div class="otp-box">
+            <p>We have sent a 6-digit OTP to your email. Please enter it below to verify your account.</p>
+            <span id="otp-email"><%= email%><a href="/register">change?</a></span>
+            <div>
+                <form action="/verify" method="post">
+                    <div class="otp-inputs">
+                        <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" name="otp[]" class="otp-input" required>
+                        <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" name="otp[]" class="otp-input" required>
+                        <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" name="otp[]" class="otp-input" required>
+                        <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" name="otp[]" class="otp-input" required>
+                        <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" name="otp[]" class="otp-input" required>
+                        <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" name="otp[]" class="otp-input" required>
+                    </div>
+                    <button type="submit" id="otp-submit">Verify Email</button>
+                </form>
+
+                <p>Didn't receive the OTP? <a href="">Resend OTP</a></p>
+            </div>
+        </div>  
+    </div>
+
+    <script>
+        document.querySelectorAll('.otp-input').forEach((input,index,inputs) => {
+            input.addEventListener('input', () =>{
+                if(input.value.length>0 && index < inputs.length - 1){
+                    inputs[index+1].focus();
+                }
+            })
+
+            input.addEventListener('keydown',(e) => {
+                if(e.key === 'Backspace' && input.value == '' && index > 0){
+                    inputs[index - 1].focus()
+                }
+            })
+        })
+    </script>
+</body>
+</html>

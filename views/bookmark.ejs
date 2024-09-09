@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmarks</title>
+    <link rel="stylesheet" href="/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <%- include('navbar/nav') %>
+    <h1 id="bookmark-heading">Your bookmark items</h1>
+    <div id="bookmark-container"></div>
+    
+    <script>
+        
+
+        async function fetchBookmarks(){
+            const response = await fetch('/api/bookm')
+            if(!response.ok) throw new Error('failed to fetch a bookmarks');
+
+            const bookmarks = await response.json();
+            const container = document.getElementById('bookmark-container');
+
+            if(bookmarks.length === 0){
+                container.innerHTML =  `<h3>There is a no item bookmarks</h3>`;
+                return;
+            }
+            bookmarks.forEach((bookmark) => {
+                let bookmarkElement = document.createElement('div');
+                bookmarkElement.className = 'item'
+
+                bookmarkElement.innerHTML = `
+                <div class="left">
+                    <img src="${bookmark.itemId.photo}" alt="item photo" id="photo">
+                </div>
+
+                <div class="right">
+                    <div class="item-top">
+                        <h3 id="heading">${bookmark.itemId.heading}</h3>
+                        <p id="aboutItem">${bookmark.itemId.aboutItem}</p>
+                    </div>
+                    <div class="item-bottom">
+                        <span id="price">Rs.${bookmark.itemId.price}</span>
+                        <p id="city">City:- ${bookmark.itemId.city}</p>
+                        <button onclick ="removeBookmark('${bookmark.itemId._id}',this)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 48C0 21.5 21.5 0 48 0l0 48 0 393.4 130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4 336 48 48 48 48 0 336 0c26.5 0 48 21.5 48 48l0 440c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488L0 48z"/></svg>Bookmark Remove</button>
+                        <button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M352 224c53 0 96-43 96-96s-43-96-96-96s-96 43-96 96c0 4 .2 8 .7 11.9l-94.1 47C145.4 170.2 121.9 160 96 160c-53 0-96 43-96 96s43 96 96 96c25.9 0 49.4-10.2 66.6-26.9l94.1 47c-.5 3.9-.7 7.8-.7 11.9c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-25.9 0-49.4 10.2-66.6 26.9l-94.1-47c.5-3.9 .7-7.8 .7-11.9s-.2-8-.7-11.9l94.1-47C302.6 213.8 326.1 224 352 224z"/></svg>Share</button>
+                    </div>
+                </div>
+                `;
+
+                container.appendChild(bookmarkElement);
+            })
+        }
+
+        function removeBookmark(itemId,buttonElement){
+            if(confirm('Are you went to remove this Bookmark ?')){
+                fetch(`/bookmark/${itemId}`,{
+                    method:'DELETE',})
+                .then(response => response.json())
+                .then(data => {
+                    if(data.message){
+                        alert(data.message);
+
+                        const itemElement = buttonElement.closest('.item')
+                        itemElement.remove();
+                    }
+                })
+                .catch(err => console.error('there error in removing bookmark',err));
+            }
+        }
+        fetchBookmarks()
+    </script>
+</body>
+</html>
